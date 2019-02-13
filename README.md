@@ -1,8 +1,8 @@
 # liri-node-app
-## LIRI Bot Homework
 LIRI is a Language Interpretation and Recognition Interface. The purpose of this app is to get it to listen for and execute commands typed in by the user. 
 
 The user is given the option to give four different commands:
+Note: It is important the command (i.e. spotify-this) is not in " " & that the topic (i.e. "song name") is in " "
 1. spotify-this-song + "song name"
 1. concert-this + "artist/band name"
 1. movie-this + "movie title"
