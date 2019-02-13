@@ -57,7 +57,7 @@ function spotifyData() {
         } else {
             for (var i = 0; i < songData.length; i++) {
                 console.log("Artist: " + songData[i].artists.name);
-                console.log("Song: " + songData[i].name);
+                console.log("Song Name: " + songData[i].name);
                 console.log("Preview Link: " + songData[i].preview_url);
                 console.log("Album: " + songData[i].album.name);
                 console.log("--------------------------------------------------------------------")
@@ -68,11 +68,19 @@ function spotifyData() {
 }
 
 function movieData() {
-    var movie = "";
     axios
-        .get("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy")
+        .get("http://www.omdbapi.com/?t=" + topic + "&y=&plot=short&apikey=trilogy")
         .then(function (response) {
-            console.log("The movie's rating is: " + response.data.imdbRating);
+            var movieData = response.data
+            // console.log(response)
+            console.log("Movie Name: " + movieData.Title);
+            console.log("Year Released: " + movieData.Year)
+            console.log("Rated: " + movieData.Rated);
+            console.log("Rotten Tomatoes Rating: " + movieData.imdbRating);
+            console.log("Produced in: " + movieData.Country);
+            console.log("Language: " + movieData.Language);
+            console.log("Plot: " + movieData.Plot);
+            console.log("Actors: " + movieData.Actors);
         });
 };
 
