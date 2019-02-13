@@ -8,48 +8,63 @@ var axios = require("axios")
 //accessing the client IDs from spotify
 var spotify = new Spotify(keys.spotify);
 
-var data1 = process.argv[2];
-var data2 = process.argv[3];
+//do this:
+var command = process.argv[2];
+//find this specific topic
+var topic = process.argv[3];
 
-switch (data1) {
+switch (command) {
     case "concert-this":
-        concert(data2)
+        concert(topic)
         break;
 
     case "spotify-this-song":
-        spotifyData(data2)
+        spotifyData(topic)
         break;
 
     case "movie-this":
-        movieData(data2)
+        movieData(topic)
         break;
 
     case "do-what-it-says":
-        doWhat(data2)
+        doWhat(topic)
         break;
 }
 
 function concert() {
 
+    axios
+        .get("https://rest.bandsintown.com/artists/" + topic + "/events?app_id=codingbootcamp")
+        .then(function (response) {
+            var concertData = response.data;
+            console.log(concertData)
+            for (var i = 0; i < concertData.length; i++) {
+                console.log("Venu: " + concertData[i].venue.name);
+                console.log("Venu Location: " + concertData[i].venue.city + "," + concertData[i].venue.region);
+                console.log("Date: " + moment(concertData[i].datetime).format("LL"))
+                console.log("----------------------------------")
+            }
+        })
 }
 
-function spotifyData() {
-        spotify.search({ type: 'track', query: data2, limit: "5" }, function (err, data) {
-            if (err) {
-                return console.log('Error occurred: ' + err);
-            } else {
-                for (var i = 0; i < 6; i++){
-                    var songData = data.tracks.items
-                    console.log(songData);
-                    console.log("Artist:" + " " + songData[i].artist[i].name[i]);
-                    console.log("Song:" + " " + songData[i].name[i]);
-                    console.log("Preview Link:" + " " + songData[i].preview_url[i]);
-                    console.log("Album:" + " " + songData[i].album[i].name[i]);
-                }
 
+function spotifyData() {
+    spotify.search({ type: 'track', query: topic, limit: "5" }, function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        } else {
+            for (var i = 0; i < 6; i++) {
+                var songData = data.tracks.items
+                console.log(songData);
+                console.log("Artist:" + " " + songData[i].artist[i].name[i]);
+                console.log("Song:" + " " + songData[i].name[i]);
+                console.log("Preview Link:" + " " + songData[i].preview_url[i]);
+                console.log("Album:" + " " + songData[i].album[i].name[i]);
             }
-        });
-    
+
+        }
+    });
+
 
 }
 
