@@ -40,3 +40,4 @@ If all is well, the app should look like this:
 
 **do-what-it-says goal:**
 The goal of this function is to properly read the random.txt file & execute the appropriate API call
+![Image of doWhat](https://github.com/CristalGomez/liri-node-app/blob/master/assets/images/dowhat.png)
