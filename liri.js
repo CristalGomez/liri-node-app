@@ -32,15 +32,14 @@ switch (command) {
 }
 
 function concert() {
-
     axios
         .get("https://rest.bandsintown.com/artists/" + topic + "/events?app_id=codingbootcamp")
         .then(function (response) {
             var concertData = response.data;
-            console.log(concertData)
+            // console.log(concertData)
             for (var i = 0; i < concertData.length; i++) {
-                console.log("Venu: " + concertData[i].venue.name);
-                console.log("Venu Location: " + concertData[i].venue.city + "," + concertData[i].venue.region);
+                console.log("Venue: " + concertData[i].venue.name);
+                console.log("Venue Location: " + concertData[i].venue.city + "," + concertData[i].venue.region);
                 console.log("Date: " + moment(concertData[i].datetime).format("LL"))
                 console.log("----------------------------------")
             }
@@ -49,23 +48,23 @@ function concert() {
 
 
 function spotifyData() {
-    spotify.search({ type: 'track', query: topic, limit: "5" }, function (err, data) {
+    spotify.search({ type: 'track', query: topic, limit: 5 }, function (err, data) {
+        var songData = data.tracks.items
+
+        // console.log(songData);
         if (err) {
             return console.log('Error occurred: ' + err);
         } else {
-            for (var i = 0; i < 6; i++) {
-                var songData = data.tracks.items
-                console.log(songData);
-                console.log("Artist:" + " " + songData[i].artist[i].name[i]);
-                console.log("Song:" + " " + songData[i].name[i]);
-                console.log("Preview Link:" + " " + songData[i].preview_url[i]);
-                console.log("Album:" + " " + songData[i].album[i].name[i]);
+            for (var i = 0; i < songData.length; i++) {
+                console.log("Artist: " + songData[i].artists.name);
+                console.log("Song: " + songData[i].name);
+                console.log("Preview Link: " + songData[i].preview_url);
+                console.log("Album: " + songData[i].album.name);
+                console.log("--------------------------------------------------------------------")
+
             }
-
         }
-    });
-
-
+    })
 }
 
 function movieData() {
