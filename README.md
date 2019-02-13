@@ -23,4 +23,17 @@ Decide which command you want LIRI bot to listen for and execute. Once you have 
 
 If all is well, the app should look like this:
 
+**typed command & topic for the concert-this function**
 ![Image of concertCommand](https://github.com/CristalGomez/liri-node-app/blob/master/assets/images/concert-command.png)
+
+**response from the concert-this function**
+![Image of concertResponse](https://github.com/CristalGomez/liri-node-app/blob/master/assets/images/concert-response.png)
+
+**typed command & topic for the spotify-this-song function**
+![Image of spotifyCommand](https://github.com/CristalGomez/liri-node-app/blob/master/assets/images/spotify_command.png)
+
+**reponse from the spotify-this-song function**
+![Image of spotifyResponse](https://github.com/CristalGomez/liri-node-app/blob/master/assets/images/spotify-5-responses.png)
+
+**typed command/topic & response from the movie-this function**
+![Image of movieThis](https://github.com/CristalGomez/liri-node-app/blob/master/assets/images/movie-command-%26-response.png)
