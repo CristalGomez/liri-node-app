@@ -1,7 +1,7 @@
 # liri-node-app
 LIRI is a Language Interpretation and Recognition Interface. The purpose of this app is to get it to listen for and execute commands typed in by the user. 
 
-###APIs & NPMs Used
+##APIs & NPMs Used
 1. Spotify
 1. OMBD
 1. Bands in Town
