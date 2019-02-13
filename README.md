@@ -2,10 +2,10 @@
 LIRI is a Language Interpretation and Recognition Interface. The purpose of this app is to get it to listen for and execute commands typed in by the user. 
 
 ## APIs & NPMs Used
-1. Spotify
-1. OMBD
-1. Bands in Town
+1. Spotify (node-spotify-api)
+1. Axios (OMBD & Bands in Town)
 1. momentJS
+1. DotEnv
 
 The user is given the option to give four different commands:
 
