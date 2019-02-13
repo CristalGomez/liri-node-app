@@ -3,7 +3,7 @@ LIRI is a Language Interpretation and Recognition Interface. The purpose of this
 
 The user is given the option to give four different commands:
 
-Note: It is important the command (i.e. spotify-this) is not in quotation marks (" ") & that the topic (i.e. "song name") is in quotation marks (" ")
+**Note**: It is important the command (i.e. spotify-this) is not in quotation marks (" ") & that the topic (i.e. "song name") is in quotation marks (" ")
 1. spotify-this-song + "song name"
 1. concert-this + "artist/band name"
 1. movie-this + "movie title"
