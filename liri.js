@@ -86,12 +86,29 @@ function movieData() {
 
 function doWhat() {
     fs.readFile("random.txt", "utf8", function (error, data) {
-
         if (error) {
             return console.log(error);
         }
-        console.log(data);
-        var diffData = data.split(",");
-        console.log(diffData);
+        // console.log(data);
+        var randomData = data.split(",");
+        //will show what the random.txt file says since it is being read by fs.readFile
+        console.log(randomData);
+
+        //assuming there is a command & topic separated by the ",":
+        //for loop that reads only 2 variables (the command & topic)
+        for (var i = 0; i < randomData.length; i++){
+            //if statements comparing the randomData to the command
+            if (randomData[i] === "spotify-this-song" && randomData[i] === "I Want it that Way"){
+                //run spotifyData()
+                spotifyData()
+            } else if (randomData[i] === "movie-this" && randomData[i] === "A Star is Born"){
+                //run movieData()
+                movieData()
+            } else if (randomData[i] === "concert-this" && randomData[i] === "Cardi B"){
+                //run concert()
+                concert()
+            }
+        }
+
     })
 };

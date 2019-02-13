@@ -1,9 +1,15 @@
 # liri-node-app
 LIRI is a Language Interpretation and Recognition Interface. The purpose of this app is to get it to listen for and execute commands typed in by the user. 
 
+###APIs & NPMs Used
+1. Spotify
+1. OMBD
+1. Bands in Town
+1. momentJS
+
 The user is given the option to give four different commands:
 
-**Note**: It is important the command (i.e. spotify-this) is not in quotation marks (" ") & that the topic (i.e. "song name") is in quotation marks (" ")
+**Note**: It is important the command (i.e. spotify-this-song) is not in quotation marks (" ") & that the topic (i.e. "song name") is in quotation marks (" ")
 1. spotify-this-song + "song name"
 1. concert-this + "artist/band name"
 1. movie-this + "movie title"
@@ -13,6 +19,8 @@ The user is given the option to give four different commands:
 This project is useful in the way that it functions like the iPhone SIRI. It is easy and efficient. 
 
 ### How to use:
-Decide which command you want LIRI bot to listen for and execute. Once you have decided which command LIRI will be executing, type in the appropriate parameter in quotation marks. If something is not functioning properly, the app will return an error message with a solution to the problem. 
+Decide which command you want LIRI bot to listen for and execute. Once you have decided which command LIRI will be executing, type in the appropriate command (i.e. spotify-this-song) and parameter (i.e. "song name"). If something is not functioning properly, the app will return an error message with a solution to the problem. 
 
 If all is well, the app should look like this:
+
+![Image of concertCommand](https://github.com/CristalGomez/liri-node-app/blob/master/assets/images/concert-command.png)
