@@ -13,23 +13,27 @@ var command = process.argv[2];
 //find this specific topic
 var topic = process.argv[3];
 
-switch (command) {
-    case "concert-this":
-        concert(topic)
-        break;
+function executeCom(command, topic){
+    switch (command) {
+        case "concert-this":
+            concert(topic)
+            break;
+    
+        case "spotify-this-song":
+            spotifyData(topic)
+            break;
+    
+        case "movie-this":
+            movieData(topic)
+            break;
+    
+        case "do-what-it-says":
+            doWhat()
+            break;
+    }
+} 
+executeCom(command,topic);
 
-    case "spotify-this-song":
-        spotifyData(topic)
-        break;
-
-    case "movie-this":
-        movieData(topic)
-        break;
-
-    case "do-what-it-says":
-        doWhat(topic)
-        break;
-}
 
 function concert() {
     axios
@@ -47,7 +51,7 @@ function concert() {
 }
 
 
-function spotifyData() {
+function spotifyData(topic) {
     spotify.search({ type: 'track', query: topic, limit: 5 }, function (err, data) {
         var songData = data.tracks.items
 
@@ -93,22 +97,8 @@ function doWhat() {
         var randomData = data.split(",");
         //will show what the random.txt file says since it is being read by fs.readFile
         console.log(randomData);
-
-        //assuming there is a command & topic separated by the ",":
-        //for loop that reads only 2 variables (the command & topic)
-        for (var i = 0; i < randomData.length; i++){
-            //if statements comparing the randomData to the command
-            if (randomData[i] === "spotify-this-song" && randomData[i] === "I Want it that Way"){
-                //run spotifyData()
-                spotifyData()
-            } else if (randomData[i] === "movie-this" && randomData[i] === "A Star is Born"){
-                //run movieData()
-                movieData()
-            } else if (randomData[i] === "concert-this" && randomData[i] === "Cardi B"){
-                //run concert()
-                concert()
-            }
-        }
-
+        var command = randomData[0];
+        var topic = randomData[1]
+        executeCom(command, topic)
     })
 };
